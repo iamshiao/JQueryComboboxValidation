@@ -55,10 +55,10 @@
 @section scripts
 {
     <script>
-        var validator = $('#form1').validate({
+        $('#form1').validate({
             errorElement: 'div',
             errorLabelContainer: '.errorTxt'
-        });
+        });        
 
         (function ($) {
             $.widget("custom.combobox", {
@@ -202,9 +202,6 @@
                     $("#ElementIDError").attr('id', 'ElementID_comboboxError');
                 }
             }));
-            $("#drpLst").rules("add", {
-                required: true
-            });
         });
     </script>
 }
