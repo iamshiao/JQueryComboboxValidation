@@ -30,6 +30,12 @@
         .ui-margin-left {
             margin-left: 35px;
         }
+
+        .errorTxt {
+            color: red;
+            font-style: italic;
+            font-weight: bold;
+        }
     </style>
 }
 
@@ -40,6 +46,8 @@
         {
             @Html.DropDownListFor(m => m.ChosenVal, @Model.Lst, new { id = "drpLst" })
             <button class="ui-margin-left">submit</button>
+            <br />
+            <div class="errorTxt"></div>
         }
     </div>
 </div>
@@ -47,7 +55,10 @@
 @section scripts
 {
     <script>
-        $("#form1").validate();
+        var validator = $('#form1').validate({
+            errorElement: 'div',
+            errorLabelContainer: '.errorTxt'
+        });
 
         (function ($) {
             $.widget("custom.combobox", {
